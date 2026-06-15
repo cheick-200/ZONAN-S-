@@ -411,7 +411,8 @@ nav a:hover{
       font-size: 0.85rem; 
       font-weight: 500;
       transition: color 0.18s, transform 0.18s;
-      white-space: nowrap;
+      white-space: normal;
+      word-break: break-word;
     }
     .contact-item:hover { 
       color: var(--g3);
@@ -558,5 +559,24 @@ nav a:hover{
         margin-right: 0;
         padding: 7px 12px;
         font-size: 13px;
+    }
+
+    /* ── FOOTER MOBILE ── */
+    .footer-main {
+        flex-direction: column;
+        gap: 28px;
+    }
+    .v-div {
+        display: none;
+    }
+    .footer-inner {
+        padding: 0 20px;
+    }
+    .col-title {
+        white-space: normal;
+    }
+    .social-btn {
+        font-size: 0.78rem;
+        padding: 8px 12px;
     }
 }
