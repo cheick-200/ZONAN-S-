@@ -1,25 +1,24 @@
-
 header{
-    word-spacing: 50px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     background: linear-gradient(270deg, #1a5c2e 0%, #2d8a4e 0%, #ffffff 100%);
-    padding: 10px;
+    padding: 0 5%;
+    height: 54px;
     position: sticky;
-    position: relative;
     top: 0;
     left: 0;
     width: 100%;
-    flex-wrap: wrap;
-
+    z-index: 500;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.15);
 }
+
 nav {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
     display: flex;
-    gap: 15px;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 }
 body{
     display: flex;
@@ -70,13 +69,15 @@ a{
     color: inherit;
 }
 nav a{
-    margin-right: 35px;
+    margin-right: 0;
     background-color: green;
     color: white;
-    padding: 10px 20px;
+    padding: 8px 16px;
     border-radius: 8px;
     text-decoration: none;
     display: inline-block;
+    font-size: 14px;
+    white-space: nowrap;
 }
 nav a:hover{
     background-color:red;
@@ -277,13 +278,7 @@ nav a:hover{
       --white: #ffffff;
       --border: rgba(255,255,255,0.10);
     }
-     body {
-     display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 20px;
-    }
+     
 
     footer {
       background: var(--g1);
@@ -541,9 +536,27 @@ nav a:hover{
       color: var(--g3);
      }
 
-    
-    @media (max-width: 768px) {
-      .footer-main { flex-direction: column; gap: 28px; }
-      .v-div { display: none; }
-      .footer-inner { padding: 0 20px; }
+
+
+     @media (max-width: 768px) {
+
+    header{
+        height: auto;
+        padding: 10px 5%;
+        flex-wrap: wrap;
+        gap: 10px;
     }
+
+    nav{
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 6px;
+    }
+
+    nav a{
+        margin-right: 0;
+        padding: 7px 12px;
+        font-size: 13px;
+    }
+}

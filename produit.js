@@ -1,5 +1,5 @@
 
-/*la partie produit*/
+/*la partie produit*/  
 
 const quantites = document.querySelectorAll(".quantite");
 
