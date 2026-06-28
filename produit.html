@@ -1,489 +1,445 @@
-
 <!DOCTYPE html>
-<html lang="en fr">
+<html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZONZAN SÔ</title>
-    <link rel="stylesheet" href="produit.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZONZAN SÔ — Produits</title>
+  <link rel="stylesheet" href="produit.css">
 </head>
 <body>
-     <header>
-        <img src="logo.jpeg" alt=""  width="50px">
-        <nav>
-            <a href="index.html">Acceuil</a>
-            <a href="suivi.html">Suivi</a>
-            <a href="formation.html">formation</a>
-            <a href="promo.html">Promo</a>
-        </nav>
 
+  <div class="nav-overlay" id="navOverlay"></div>
 
-
-        <!--la storie-->
-        <section>
-          
-          
-        <div id="stories-widget">
-          <button id="stories-admin-btn" onclick="storiesOpenLogin()">
-            <div class="s-add-ring">
-              <div class="s-add-bg"></div>
-              <div class="s-add-icon"></div>
-            </div>
-            <div class="s-add-label" style="color: white;">Ma story</div>
-          </button>
-          <div  id="stories-circles"></div>
-        </div>
-
-
-
-
-
-      <!--ce qu'on voit quand on clique sur le cercle-->
-      <div id="s-viewer">
-  <div class="s-prog-row" id="s-prog-row"></div>
-  <button class="s-close-btn" onclick="storiesCloseViewer()">✕</button>
-  <div class="s-media-wrap">
-    <img id="s-img" style="display:none"/>
-    <video id="s-vid" style="display:none" playsinline muted></video>
-    <div class="s-tap-prev" onclick="storiesPrev()"></div>
-    <div class="s-tap-next" onclick="storiesNext()"></div>
-  </div>
-  <div class="s-caption-bar">
-    <div class="s-caption-text" id="s-cap"></div>
-    <div class="s-date-text" id="s-date"></div>
-  </div>
-</div>
-
-<div id="s-login" onclick="if(event.target===this)storiesCloseLogin()">
-  <div class="s-sheet">
-    <h3>🔐 Accès Admin</h3>
-    <input type="password" id="s-pwd" placeholder="Mot de passe…" onkeydown="if(event.key==='Enter')storiesCheckPwd()"/>
-    <div class="s-err" id="s-err"></div>
-    <button class="s-login-btn" onclick="storiesCheckPwd()">Connexion</button>
-    <button class="s-cancel" onclick="storiesCloseLogin()">Annuler</button>
-  </div>
-</div>
-
-<div id="s-admin">
-  <div class="s-admin-nav">
-    <h2>✦ Stories Admin</h2>
-    <button onclick="storiesCloseAdmin()">Fermer ✕</button>
-  </div>
-  <div class="s-admin-body">
-    <div class="s-dropzone" id="s-dropzone"
-      onclick="document.getElementById('s-file-input').click()"
-      ondragover="sDragOver(event)" ondragleave="sDragLeave()" ondrop="sDrop(event)">
-      📲 Appuyez ou glissez une <b>photo / vidéo</b><br>JPG · PNG · MP4 · MOV
-    </div>
-    <input type="file" id="s-file-input" accept="image/*,video/*" onchange="sFileChosen(event)">
-    <div class="s-preview" id="s-preview">
-      <img id="s-prev-img" style="display:none"/>
-      <video id="s-prev-vid" style="display:none" muted></video>
-      <div class="s-preview-info">
-        <div class="name" id="s-prev-name"></div>
-        <div class="type" id="s-prev-type"></div>
-      </div>
-      <button onclick="sClearFile()">✕</button>
-    </div>
-    <input type="text" id="s-caption" class="s-caption-inp" placeholder="Légende (optionnel)…" maxlength="80"/>
-    <div class="s-duration-row">
-      <span class="s-duration-label">📅 Visible pendant</span>
-      <div class="s-duration-btns">
-        <button class="s-dur-btn active" data-days="1" onclick="sSetDur(this)">1 jour</button>
-        <button class="s-dur-btn" data-days="2" onclick="sSetDur(this)">2 jours</button>
-        <button class="s-dur-btn" data-days="3" onclick="sSetDur(this)">3 jours</button>
-        <button class="s-dur-btn" data-days="7" onclick="sSetDur(this)">7 jours</button>
-      </div>
-      <span class="s-duration-note">La story disparaît automatiquement après ce délai</span>
-    </div>
-    <button class="s-publish-btn" id="s-pub-btn" onclick="sPublish()" disabled>Publier ✦</button>
-    <div class="s-hr"></div>
-    <div class="s-list-label">Stories en ligne</div>
-    <div id="s-list"></div>
-  </div>
-</div>
-</section>
-
-</header>
-
-
-
-
-    <!--la prtie produit-->
-    <div class="page">
-
-  <!-- PRODUITS -->
-  <div class="product-grid" id="productGrid">
-
-    <div class="product">
-      <div class="product-img-wrap"><img src="abreuvoir.jpeg" alt="Abreuvoir"></div>
-      <div class="product-info">
-        <div class="product-name">Abreuvoir</div>
-        <div class="product-price">1 500 FCFA</div>
-        <div class="product-actions">
-          <div class="qty-row">
-            <span class="qty-label">Qté :</span>
-            <input type="number" class="quantite" data-prix="1500" data-nom="Abreuvoir" value="0" min="0">
-          </div>
-          <a class="btn-wa" href="http://wa.me/22369613683?text=Bonjour, je souhaite des informations sur l'Abreuvoir" target="_blank">💬 Infos WhatsApp</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="product">
-      <div class="product-img-wrap"><img src="mageoire.jpeg" alt="Mangeoire"></div>
-      <div class="product-info">
-        <div class="product-name">Mangeoire</div>
-        <div class="product-price">1 000 FCFA</div>
-        <div class="product-actions">
-          <div class="qty-row">
-            <span class="qty-label">Qté :</span>
-            <input type="number" class="quantite" data-prix="1000" data-nom="Mangeoire" value="0" min="0">
-          </div>
-          <a class="btn-wa" href="http://wa.me/22369613683?text=Bonjour, je souhaite des informations sur la Mangeoire" target="_blank">💬 Infos WhatsApp</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="product">
-      <div class="product-img-wrap"><img src="nid.jpeg" alt="Le nid"></div>
-      <div class="product-info">
-        <div class="product-name">Le nid</div>
-        <div class="product-price">3 500 FCFA</div>
-        <div class="product-actions">
-          <div class="qty-row">
-            <span class="qty-label">Qté :</span>
-            <input type="number" class="quantite" data-prix="3500" data-nom="Le nid" value="0" min="0">
-          </div>
-          <a class="btn-wa" href="http://wa.me/22369613683?text=Bonjour, je souhaite des informations sur Le nid" target="_blank">💬 Infos WhatsApp</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="product">
-      <div class="product-img-wrap"><img src="cage0.jpeg" alt="Cage 0"></div>
-      <div class="product-info">
-        <div class="product-name">Cage 0 dos de so</div>
-        <div class="product-price">25 000 FCFA</div>
-        <div class="product-actions">
-          <div class="qty-row">
-            <span class="qty-label">Qté :</span>
-            <input type="number" class="quantite" data-prix="25000" data-nom="Cage 0 dos de so" value="0" min="0">
-          </div>
-          <a class="btn-wa" href="http://wa.me/22369613683?text=Bonjour, je souhaite des informations sur la Cage 0" target="_blank">💬 Infos WhatsApp</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="product">
-      <div class="product-img-wrap"><img src="cage1.jpeg" alt="Cage 1 compartiment"></div>
-      <div class="product-info">
-        <div class="product-name">Cage 1 compartiment</div>
-        <div class="product-price">30 000 FCFA</div>
-        <div class="product-actions">
-          <div class="qty-row">
-            <span class="qty-label">Qté :</span>
-            <input type="number" class="quantite" data-prix="30000" data-nom="Cage 1 compartiment" value="0" min="0">
-          </div>
-          <a class="btn-wa" href="http://wa.me/22369613683?text=Bonjour, je souhaite des informations sur la Cage 1 compartiment" target="_blank">💬 Infos WhatsApp</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="product">
-      <div class="product-img-wrap"><img src="cage2.jpeg" alt="Cage 2 compartiments"></div>
-      <div class="product-info">
-        <div class="product-name">Cage 2 compartiments</div>
-        <div class="product-price">60 000 FCFA</div>
-        <div class="product-actions">
-          <div class="qty-row">
-            <span class="qty-label">Qté :</span>
-            <input type="number" class="quantite" data-prix="60000" data-nom="Cage 2 compartiments" value="0" min="0">
-          </div>
-          <a class="btn-wa" href="http://wa.me/22369613683?text=Bonjour, je souhaite des informations sur la Cage 2 compartiments" target="_blank">💬 Infos WhatsApp</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="product">
-      <div class="product-img-wrap"><img src="cage3.jpeg" alt="Cage 3 compartiments"></div>
-      <div class="product-info">
-        <div class="product-name">Cage 3 compartiments</div>
-        <div class="product-price">85 000 FCFA</div>
-        <div class="product-actions">
-          <div class="qty-row">
-            <span class="qty-label">Qté :</span>
-            <input type="number" class="quantite" data-prix="85000" data-nom="Cage 3 compartiments" value="0" min="0">
-          </div>
-          <a class="btn-wa" href="http://wa.me/22369613683?text=Bonjour, je souhaite des informations sur la Cage 3 compartiments" target="_blank">💬 Infos WhatsApp</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="product">
-      <div class="product-img-wrap"><img src="cage4.jpeg" alt="Cage 4 compartiments"></div>
-      <div class="product-info">
-        <div class="product-name">Cage 4 compartiments</div>
-        <div class="product-price">100 000 FCFA</div>
-        <div class="product-actions">
-          <div class="qty-row">
-            <span class="qty-label">Qté :</span>
-            <input type="number" class="quantite" data-prix="100000" data-nom="Cage 4 compartiments" value="0" min="0">
-          </div>
-          <a class="btn-wa" href="http://wa.me/22369613683?text=Bonjour, je souhaite des informations sur la Cage 4 compartiments" target="_blank">💬 Infos WhatsApp</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="product">
-      <div class="product-img-wrap"><img src="posepatte1.jpeg" alt="Pose patte 1"></div>
-      <div class="product-info">
-        <div class="product-name">Pose patte 1</div>
-        <div class="product-price">3 500 FCFA</div>
-        <div class="product-actions">
-          <div class="qty-row">
-            <span class="qty-label">Qté :</span>
-            <input type="number" class="quantite" data-prix="3500" data-nom="Pose patte 1" value="0" min="0">
-          </div>
-          <a class="btn-wa" href="http://wa.me/22369613683?text=Bonjour, je souhaite des informations sur le Pose patte 1" target="_blank">💬 Infos WhatsApp</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="product">
-      <div class="product-img-wrap"><img src="posepatte2.jpeg" alt="Pose patte 2"></div>
-      <div class="product-info">
-        <div class="product-name">Pose patte 2</div>
-        <div class="product-price">5 000 FCFA</div>
-        <div class="product-actions">
-          <div class="qty-row">
-            <span class="qty-label">Qté :</span>
-            <input type="number" class="quantite" data-prix="5000" data-nom="Pose patte 2" value="0" min="0">
-          </div>
-          <a class="btn-wa" href="http://wa.me/22369613683?text=Bonjour, je souhaite des informations sur le Pose patte 2" target="_blank">💬 Infos WhatsApp</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="product">
-      <div class="product-img-wrap"><img src="posepatte3.jpeg" alt="Pose patte 3"></div>
-      <div class="product-info">
-        <div class="product-name">Pose patte 3</div>
-        <div class="product-price">10 000 FCFA</div>
-        <div class="product-actions">
-          <div class="qty-row">
-            <span class="qty-label">Qté :</span>
-            <input type="number" class="quantite" data-prix="10000" data-nom="Pose patte 3" value="0" min="0">
-          </div>
-          <a class="btn-wa" href="http://wa.me/22369613683?text=Bonjour, je souhaite des informations sur le Pose patte 3" target="_blank">💬 Infos WhatsApp</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="product">
-      <div class="product-img-wrap"><img src="grama.jpeg" alt="Grama"></div>
-      <div class="product-info">
-        <div class="product-name">Grama</div>
-        <div class="product-price">6 000 FCFA</div>
-        <div class="product-actions">
-          <div class="qty-row">
-            <span class="qty-label">Qté :</span>
-            <input type="number" class="quantite" data-prix="6000" data-nom="Grama" value="0" min="0">
-          </div>
-          <a class="btn-wa" href="http://wa.me/22369613683?text=Bonjour, je souhaite des informations sur le Grama" target="_blank">💬 Infos WhatsApp</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="product">
-      <div class="product-img-wrap"><img src="caissetrans.jpeg" alt="Caisse de transport"></div>
-      <div class="product-info">
-        <div class="product-name">Caisse de transport</div>
-        <div class="product-price">2 500 FCFA</div>
-        <div class="product-actions">
-          <div class="qty-row">
-            <span class="qty-label">Qté :</span>
-            <input type="number" class="quantite" data-prix="2500" data-nom="Caisse de transport" value="0" min="0">
-          </div>
-          <a class="btn-wa" href="http://wa.me/22369613683?text=Bonjour, je souhaite des informations sur la Caisse de transport" target="_blank">💬 Infos WhatsApp</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="product">
-      <div class="product-img-wrap"><img src="viande frais.jpeg" alt="Viande crue"></div>
-      <div class="product-info">
-        <div class="product-name">Viande crue</div>
-        <div class="product-price">6 500 FCFA</div>
-        <div class="product-actions">
-          <div class="qty-row">
-            <span class="qty-label">Qté :</span>
-            <input type="number" class="quantite" data-prix="6500" data-nom="Viande crue" value="0" min="0">
-          </div>
-          <a class="btn-wa" href="http://wa.me/22369613683?text=Bonjour, je souhaite des informations sur la Viande crue" target="_blank">💬 Infos WhatsApp</a>
-        </div>
-      </div>
-    </div>
-
-  </div><!-- /product-grid -->
+  <header>
+    <img src="logo.jpeg" alt="ZONZAN SÔ" width="46px">
+    <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav id="mainNav">
+      <a href="index.html">Accueil</a>
+      <a href="suivi.html">Suivi</a>
+      <a href="formation.html">Formation</a>
+      <a href="promo.html">Promo</a>
+    </nav>
+  </header>
 
   
-
-  <!-- la partie panier -->
-  <aside class="panier-sidebar">
-    <div class="panier-title">🛒 Mon Panier</div>
-
-    <div id="Panier">
-      <div class="panier-empty">Aucun article sélectionné.</div>
-    </div>
-
-    <div class="total-row">
-      <span style="color: white;">Total</span>
-      <span class="total-amount"><span id="Total">0</span> FCFA</span>
-    </div>
-
-    <button class="btn-main btn-wa-main" onclick="envoyerCommande()">
-      📲 Commander via WhatsApp
+  <div class="stories-bar" id="storiesBar">
+    
+    <button class="s-admin-bubble" id="storiesAdminBubble" onclick="storiesOpenLogin()" style="display:none">
+      <div class="s-ring s-ring-admin">
+        <div class="s-inner">
+          <div class="s-add-icon">+</div>
+        </div>
+      </div>
+      <span class="s-label">Ma story</span>
     </button>
-    <button class="btn-main btn-paiement" onclick="ouvrirPaiement()">
-      💳 Payer en ligne
-    </button>
-  </aside>
 
-</div><!-- /page -->
+    
+    <div id="stories-circles" class="stories-circles"></div>
 
-<!-- MODAL PAIEMENT -->
-<div class="modal-overlay" id="modalOverlay" onclick="fermerPaiement(event)">
-  <div class="modal">
-    <h2>💳 Paiement en ligne</h2>
+    
+    <button class="s-gear-btn" id="sGearBtn" onclick="storiesOpenLogin()" title="Admin stories">⚙</button>
+  </div>
 
-    <div class="field">
-      <label>Votre numéro de téléphone</label>
-      <input type="tel" id="numeroClient" placeholder="ex: 229 XX XX XX XX">
+  
+  <div id="s-viewer">
+    <div class="s-prog-row" id="s-prog-row"></div>
+    <button class="s-close-btn" onclick="storiesCloseViewer()">✕</button>
+    <div class="s-media-wrap">
+      <img id="s-img" style="display:none"/>
+      <video id="s-vid" style="display:none" playsinline muted></video>
+      <div class="s-tap-prev" onclick="storiesPrev()"></div>
+      <div class="s-tap-next" onclick="storiesNext()"></div>
     </div>
-
-    <div class="field">
-      <label>Méthode de paiement</label>
-      <select id="methode">
-        <option value="MTN Mobile Money">MTN Mobile Money</option>
-        <option value="Moov Money">Moov Money</option>
-        <option value="Wave">Wave</option>
-        <option value="Autre">Autre</option>
-      </select>
-    </div>
-
-    <div class="modal-btns">
-      <button class="btn-cancel" onclick="fermerModal()">Annuler</button>
-      <button class="btn-main btn-paiement btn-confirm" onclick="confirmerPaiement()">Confirmer</button>
+    <div class="s-caption-bar">
+      <div class="s-caption-text" id="s-cap"></div>
+      <div class="s-date-text" id="s-date"></div>
     </div>
   </div>
-</div>
-    <br></br>
 
-
-
-
-
-       <!---le footer-->
-       <footer>
-        <div class="footer-texture"></div>
-  <div class="footer-inner">
-
-    <!-- Slogan centré -->
-    <div class="footer-brand">
-      <div class="brand-name">
-        ZONZAN SÔ
-        <span>Depuis 2017</span>
-      </div>
-      <p class="slogan-text">« Le meilleur du lapin »</p>
-      <div class="slogan-badge">🐇 Élevage · Qualité · Excellence</div>
+  
+  <div id="s-login" onclick="if(event.target===this)storiesCloseLogin()">
+    <div class="s-sheet">
+      <h3>🔐 Accès Admin</h3>
+      <input type="password" id="s-pwd" placeholder="Mot de passe…" onkeydown="if(event.key==='Enter')storiesCheckPwd()"/>
+      <div class="s-err" id="s-err"></div>
+      <button class="s-login-btn" onclick="storiesCheckPwd()">Connexion</button>
+      <button class="s-cancel" onclick="storiesCloseLogin()">Annuler</button>
     </div>
+  </div>
 
-    <!-- Ligne horizontale : Contact | Adresse | Réseaux -->
-    <div class="footer-main">
+  
+  <div id="s-admin">
+    <div class="s-admin-nav">
+      <h2>✦ Stories Admin</h2>
+      <button onclick="storiesCloseAdmin()">Fermer ✕</button>
+    </div>
+    <div class="s-admin-body">
+      <div class="s-dropzone" id="s-dropzone"
+        onclick="document.getElementById('s-file-input').click()"
+        ondragover="sDragOver(event)" ondragleave="sDragLeave()" ondrop="sDrop(event)">
+        📲 Appuyez ou glissez une <b>photo / vidéo</b><br>JPG · PNG · MP4 · MOV
+      </div>
+      <input type="file" id="s-file-input" accept="image/*,video/*" onchange="sFileChosen(event)">
+      <div class="s-preview" id="s-preview">
+        <img id="s-prev-img" style="display:none"/>
+        <video id="s-prev-vid" style="display:none" muted></video>
+        <div class="s-preview-info">
+          <div class="name" id="s-prev-name"></div>
+          <div class="type" id="s-prev-type"></div>
+        </div>
+        <button onclick="sClearFile()">✕</button>
+      </div>
+      <input type="text" id="s-caption" class="s-caption-inp" placeholder="Légende (optionnel)…" maxlength="80"/>
+      <div class="s-duration-row">
+        <span class="s-duration-label">📅 Visible pendant</span>
+        <div class="s-duration-btns">
+          <button class="s-dur-btn active" data-days="1" onclick="sSetDur(this)">1 jour</button>
+          <button class="s-dur-btn" data-days="2" onclick="sSetDur(this)">2 jours</button>
+          <button class="s-dur-btn" data-days="3" onclick="sSetDur(this)">3 jours</button>
+          <button class="s-dur-btn" data-days="7" onclick="sSetDur(this)">7 jours</button>
+        </div>
+        <span class="s-duration-note">La story disparaît automatiquement après ce délai</span>
+      </div>
+      <button class="s-publish-btn" id="s-pub-btn" onclick="sPublish()" disabled>Publier ✦</button>
+      <div class="s-hr"></div>
+      <div class="s-list-label">Stories en ligne</div>
+      <div id="s-list"></div>
+    </div>
+  </div>
 
-      <!-- Contacts -->
-      <div class="f-col">
-        <div class="col-title">📞 Contacts</div>
-        <div class="contact-list">
-          <a class="contact-item" href="tel:+22669613683">
-            <div class="ci-icon">📱</div>+223 69 61 36 83
-          </a>
-          <a class="contact-item" href="tel:+22607000000">
-            <div class="ci-icon">☎️</div>+22 90 00 18 18
-          </a>
-          <a class="contact-item" href="mailto:contact@zonzanso.com">
-            <div class="ci-icon">✉️</div>contact@zonzanso.com
-          </a>
-          <a class="contact-item" href="https://wa.me/22669613683" target="_blank">
-            <div class="ci-icon">💬</div>WhatsApp : 69 61 36 83
-          </a>
+  
+  <div class="page">
+
+    
+    <div class="product-grid" id="productGrid">
+
+      <div class="product">
+        <div class="product-img-wrap"><img src="abreuvoir.jpeg" alt="Abreuvoir"></div>
+        <div class="product-info">
+          <div class="product-name">Abreuvoir</div>
+          <div class="product-price">1 500 FCFA</div>
+          <div class="product-actions">
+            <div class="qty-row">
+              <button class="qty-btn" onclick="changeQty(this,-1)">−</button>
+              <input type="number" class="quantite" data-prix="1500" data-nom="Abreuvoir" value="0" min="0">
+              <button class="qty-btn" onclick="changeQty(this,1)">+</button>
+            </div>
+            <a class="btn-wa" href="https://wa.me/22369613683?text=Bonjour, je souhaite des informations sur l'Abreuvoir" target="_blank">💬 Infos</a>
+          </div>
         </div>
       </div>
 
-      <div class="v-div"></div>
-
-      <!-- Adresse -->
-      <div class="f-col">
-        <div class="col-title">📍 Adresse</div>
-        <div class="addr-list">
-          <div class="addr-item">
-            <span class="ai-icon">🏢</span>
-           sabalibougou, bamako, Mali
+      <div class="product">
+        <div class="product-img-wrap"><img src="mageoire.jpeg" alt="Mangeoire"></div>
+        <div class="product-info">
+          <div class="product-name">Mangeoire</div>
+          <div class="product-price">1 000 FCFA</div>
+          <div class="product-actions">
+            <div class="qty-row">
+              <button class="qty-btn" onclick="changeQty(this,-1)">−</button>
+              <input type="number" class="quantite" data-prix="1000" data-nom="Mangeoire" value="0" min="0">
+              <button class="qty-btn" onclick="changeQty(this,1)">+</button>
+            </div>
+            <a class="btn-wa" href="https://wa.me/22369613683?text=Bonjour, je souhaite des informations sur la Mangeoire" target="_blank">💬 Infos</a>
           </div>
-          <div class="addr-item">
-            <span class="ai-icon">🌍</span>
-            Bamako, Mali
-          </div>
-          <div class="addr-item">
-            <span class="ai-icon"></span>
-            
-          </div>
-          <a class="map-btn" href="https://maps.google.com" target="_blank">
-            🗺 Voir sur la carte
-          </a>
         </div>
       </div>
 
-      <div class="v-div"></div>
+      <div class="product">
+        <div class="product-img-wrap"><img src="nid.jpeg" alt="Le nid"></div>
+        <div class="product-info">
+          <div class="product-name">Le nid</div>
+          <div class="product-price">3 500 FCFA</div>
+          <div class="product-actions">
+            <div class="qty-row">
+              <button class="qty-btn" onclick="changeQty(this,-1)">−</button>
+              <input type="number" class="quantite" data-prix="3500" data-nom="Le nid" value="0" min="0">
+              <button class="qty-btn" onclick="changeQty(this,1)">+</button>
+            </div>
+            <a class="btn-wa" href="https://wa.me/22369613683?text=Bonjour, je souhaite des informations sur Le nid" target="_blank">💬 Infos</a>
+          </div>
+        </div>
+      </div>
 
-      <!-- Réseaux sociaux -->
-      <div class="f-col">
-        <div class="col-title">🌐 Réseaux sociaux</div>
-        <div class="social-list">
-          <a class="social-btn fb" href="https://facebook.com/ZONZANSO" target="_blank">
-            <span class="sico"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></span>
-            Facebook
-          </a>
-          <a class="social-btn ig" href="https://instagram.com/ZONZANSO" target="_blank">
-            <span class="sico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></span>
-            Instagram
-          </a>
-          <a class="social-btn wa" href="https://wa.me/22369613683" target="_blank">
-            <span class="sico"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg></span>
-            WhatsApp
-          </a>
-          <a class="social-btn tt" href="https://tiktok.com/@ZONZANSO" target="_blank">
-            <span class="sico"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.45a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.34 6.34 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z"/></svg></span>
-            TikTok
-          </a>
-          <a class="social-btn yt" href="https://youtube.com/@ZONZANSO" target="_blank">
-            <span class="sico"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon fill="#0d5c2e" points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg></span>
-            YouTube
-          </a>
+      <div class="product">
+        <div class="product-img-wrap"><img src="cage0.jpeg" alt="Cage 0"></div>
+        <div class="product-info">
+          <div class="product-name">Cage 0 dos de so</div>
+          <div class="product-price">25 000 FCFA</div>
+          <div class="product-actions">
+            <div class="qty-row">
+              <button class="qty-btn" onclick="changeQty(this,-1)">−</button>
+              <input type="number" class="quantite" data-prix="25000" data-nom="Cage 0 dos de so" value="0" min="0">
+              <button class="qty-btn" onclick="changeQty(this,1)">+</button>
+            </div>
+            <a class="btn-wa" href="https://wa.me/22369613683?text=Bonjour, je souhaite des informations sur la Cage 0" target="_blank">💬 Infos</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product">
+        <div class="product-img-wrap"><img src="cage1.jpeg" alt="Cage 1 compartiment"></div>
+        <div class="product-info">
+          <div class="product-name">Cage 1 compartiment</div>
+          <div class="product-price">30 000 FCFA</div>
+          <div class="product-actions">
+            <div class="qty-row">
+              <button class="qty-btn" onclick="changeQty(this,-1)">−</button>
+              <input type="number" class="quantite" data-prix="30000" data-nom="Cage 1 compartiment" value="0" min="0">
+              <button class="qty-btn" onclick="changeQty(this,1)">+</button>
+            </div>
+            <a class="btn-wa" href="https://wa.me/22369613683?text=Bonjour, je souhaite des informations sur la Cage 1" target="_blank">💬 Infos</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product">
+        <div class="product-img-wrap"><img src="cage2.jpeg" alt="Cage 2 compartiments"></div>
+        <div class="product-info">
+          <div class="product-name">Cage 2 compartiments</div>
+          <div class="product-price">60 000 FCFA</div>
+          <div class="product-actions">
+            <div class="qty-row">
+              <button class="qty-btn" onclick="changeQty(this,-1)">−</button>
+              <input type="number" class="quantite" data-prix="60000" data-nom="Cage 2 compartiments" value="0" min="0">
+              <button class="qty-btn" onclick="changeQty(this,1)">+</button>
+            </div>
+            <a class="btn-wa" href="https://wa.me/22369613683?text=Bonjour, je souhaite des informations sur la Cage 2" target="_blank">💬 Infos</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product">
+        <div class="product-img-wrap"><img src="cage3.jpeg" alt="Cage 3 compartiments"></div>
+        <div class="product-info">
+          <div class="product-name">Cage 3 compartiments</div>
+          <div class="product-price">85 000 FCFA</div>
+          <div class="product-actions">
+            <div class="qty-row">
+              <button class="qty-btn" onclick="changeQty(this,-1)">−</button>
+              <input type="number" class="quantite" data-prix="85000" data-nom="Cage 3 compartiments" value="0" min="0">
+              <button class="qty-btn" onclick="changeQty(this,1)">+</button>
+            </div>
+            <a class="btn-wa" href="https://wa.me/22369613683?text=Bonjour, je souhaite des informations sur la Cage 3" target="_blank">💬 Infos</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product">
+        <div class="product-img-wrap"><img src="cage4.jpeg" alt="Cage 4 compartiments"></div>
+        <div class="product-info">
+          <div class="product-name">Cage 4 compartiments</div>
+          <div class="product-price">100 000 FCFA</div>
+          <div class="product-actions">
+            <div class="qty-row">
+              <button class="qty-btn" onclick="changeQty(this,-1)">−</button>
+              <input type="number" class="quantite" data-prix="100000" data-nom="Cage 4 compartiments" value="0" min="0">
+              <button class="qty-btn" onclick="changeQty(this,1)">+</button>
+            </div>
+            <a class="btn-wa" href="https://wa.me/22369613683?text=Bonjour, je souhaite des informations sur la Cage 4" target="_blank">💬 Infos</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product">
+        <div class="product-img-wrap"><img src="posepatte1.jpeg" alt="Pose patte 1"></div>
+        <div class="product-info">
+          <div class="product-name">Pose patte 1</div>
+          <div class="product-price">3 500 FCFA</div>
+          <div class="product-actions">
+            <div class="qty-row">
+              <button class="qty-btn" onclick="changeQty(this,-1)">−</button>
+              <input type="number" class="quantite" data-prix="3500" data-nom="Pose patte 1" value="0" min="0">
+              <button class="qty-btn" onclick="changeQty(this,1)">+</button>
+            </div>
+            <a class="btn-wa" href="https://wa.me/22369613683?text=Bonjour, je souhaite des informations sur le Pose patte 1" target="_blank">💬 Infos</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product">
+        <div class="product-img-wrap"><img src="posepatte2.jpeg" alt="Pose patte 2"></div>
+        <div class="product-info">
+          <div class="product-name">Pose patte 2</div>
+          <div class="product-price">5 000 FCFA</div>
+          <div class="product-actions">
+            <div class="qty-row">
+              <button class="qty-btn" onclick="changeQty(this,-1)">−</button>
+              <input type="number" class="quantite" data-prix="5000" data-nom="Pose patte 2" value="0" min="0">
+              <button class="qty-btn" onclick="changeQty(this,1)">+</button>
+            </div>
+            <a class="btn-wa" href="https://wa.me/22369613683?text=Bonjour, je souhaite des informations sur le Pose patte 2" target="_blank">💬 Infos</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product">
+        <div class="product-img-wrap"><img src="posepatte3.jpeg" alt="Pose patte 3"></div>
+        <div class="product-info">
+          <div class="product-name">Pose patte 3</div>
+          <div class="product-price">10 000 FCFA</div>
+          <div class="product-actions">
+            <div class="qty-row">
+              <button class="qty-btn" onclick="changeQty(this,-1)">−</button>
+              <input type="number" class="quantite" data-prix="10000" data-nom="Pose patte 3" value="0" min="0">
+              <button class="qty-btn" onclick="changeQty(this,1)">+</button>
+            </div>
+            <a class="btn-wa" href="https://wa.me/22369613683?text=Bonjour, je souhaite des informations sur le Pose patte 3" target="_blank">💬 Infos</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product">
+        <div class="product-img-wrap"><img src="grama.jpeg" alt="Grama"></div>
+        <div class="product-info">
+          <div class="product-name">Grama</div>
+          <div class="product-price">6 000 FCFA</div>
+          <div class="product-actions">
+            <div class="qty-row">
+              <button class="qty-btn" onclick="changeQty(this,-1)">−</button>
+              <input type="number" class="quantite" data-prix="6000" data-nom="Grama" value="0" min="0">
+              <button class="qty-btn" onclick="changeQty(this,1)">+</button>
+            </div>
+            <a class="btn-wa" href="https://wa.me/22369613683?text=Bonjour, je souhaite des informations sur le Grama" target="_blank">💬 Infos</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product">
+        <div class="product-img-wrap"><img src="caissetrans.jpeg" alt="Caisse de transport"></div>
+        <div class="product-info">
+          <div class="product-name">Caisse de transport</div>
+          <div class="product-price">2 500 FCFA</div>
+          <div class="product-actions">
+            <div class="qty-row">
+              <button class="qty-btn" onclick="changeQty(this,-1)">−</button>
+              <input type="number" class="quantite" data-prix="2500" data-nom="Caisse de transport" value="0" min="0">
+              <button class="qty-btn" onclick="changeQty(this,1)">+</button>
+            </div>
+            <a class="btn-wa" href="https://wa.me/22369613683?text=Bonjour, je souhaite des informations sur la Caisse de transport" target="_blank">💬 Infos</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product">
+        <div class="product-img-wrap"><img src="viande frais.jpeg" alt="Viande crue"></div>
+        <div class="product-info">
+          <div class="product-name">Viande crue</div>
+          <div class="product-price">6 500 FCFA</div>
+          <div class="product-actions">
+            <div class="qty-row">
+              <button class="qty-btn" onclick="changeQty(this,-1)">−</button>
+              <input type="number" class="quantite" data-prix="6500" data-nom="Viande crue" value="0" min="0">
+              <button class="qty-btn" onclick="changeQty(this,1)">+</button>
+            </div>
+            <a class="btn-wa" href="https://wa.me/22369613683?text=Bonjour, je souhaite des informations sur la Viande crue" target="_blank">💬 Infos</a>
+          </div>
         </div>
       </div>
 
     </div>
 
-    <!-- Bottom -->
-    <div class="footer-bottom">
-      <p>© 2024 <strong>ZONZAN SO</strong> — Le meilleur du lapin. Tous droits réservés.</p>
-    </div>
+    <!-- PANIER -->
+    <aside class="panier-sidebar" id="panierSidebar">
+      <div class="panier-title">
+        🛒 Mon Panier
+        <span class="panier-count" id="panierCount">0</span>
+      </div>
+      <div id="Panier">
+        <div class="panier-empty">Aucun article sélectionné.</div>
+      </div>
+      <div class="total-row">
+        <span>Total</span>
+        <span class="total-amount"><span id="Total">0</span> FCFA</span>
+      </div>
+      <button class="btn-main btn-wa-main" onclick="envoyerCommande()">📲 Commander via WhatsApp</button>
+      <button class="btn-main btn-paiement" onclick="ouvrirPaiement()">💳 Payer en ligne</button>
+    </aside>
 
   </div>
-       </footer>
-    <script src="produit.js"></script>
+
+  
+  <div class="modal-overlay" id="modalOverlay" onclick="fermerPaiement(event)">
+    <div class="modal">
+      <h2>💳 Paiement en ligne</h2>
+      <div class="field">
+        <label>Votre numéro de téléphone</label>
+        <input type="tel" id="numeroClient" placeholder="ex: 223 XX XX XX XX">
+      </div>
+      <div class="field">
+        <label>Méthode de paiement</label>
+        <select id="methode">
+          <option value="Orange Money">Orange Money</option>
+          <option value="Wave">Wave</option>
+          <option value="Moov Money">Moov Money</option>
+          <option value="Autre">Autre</option>
+        </select>
+      </div>
+      <div class="modal-btns">
+        <button class="btn-cancel" onclick="fermerModal()">Annuler</button>
+        <button class="btn-main btn-paiement btn-confirm" onclick="confirmerPaiement()">Confirmer</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-texture"></div>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="brand-name">ZONZAN SÔ<span>Depuis 2017</span></div>
+        <p class="slogan-text">« Le meilleur du lapin »</p>
+        <div class="slogan-badge">🐇 Élevage · Qualité · Excellence</div>
+      </div>
+      <div class="footer-main">
+        <div class="f-col">
+          <div class="col-title">📞 Contacts</div>
+          <div class="contact-list">
+            <a class="contact-item" href="tel:+22669613683"><div class="ci-icon">📱</div>+223 69 61 36 83</a>
+            <a class="contact-item" href="tel:+22690001818"><div class="ci-icon">☎️</div>+223 90 00 18 18</a>
+            <a class="contact-item" href="mailto:contact@zonzanso.com"><div class="ci-icon">✉️</div>contact@zonzanso.com</a>
+            <a class="contact-item" href="https://wa.me/22669613683" target="_blank"><div class="ci-icon">💬</div>WhatsApp</a>
+          </div>
+        </div>
+        <div class="v-div"></div>
+        <div class="f-col">
+          <div class="col-title">📍 Adresse</div>
+          <div class="addr-list">
+            <div class="addr-item"><span class="ai-icon">🏢</span>Sabalibougou, Bamako, Mali</div>
+            <div class="addr-item"><span class="ai-icon">🌍</span>Bamako, Mali</div>
+            <a class="map-btn" href="https://maps.google.com" target="_blank">🗺 Voir sur la carte</a>
+          </div>
+        </div>
+        <div class="v-div"></div>
+        <div class="f-col">
+          <div class="col-title">🌐 Réseaux sociaux</div>
+          <div class="social-list">
+            <a class="social-btn fb" href="https://facebook.com/ZONZANSO" target="_blank" title="Facebook">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <a class="social-btn ig" href="https://instagram.com/ZONZANSO" target="_blank" title="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a class="social-btn wa" href="https://wa.me/22669613683" target="_blank" title="WhatsApp">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+            </a>
+            <a class="social-btn tt" href="https://tiktok.com/@ZONZANSO" target="_blank" title="TikTok">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.45a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.34 6.34 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z"/></svg>
+            </a>
+            <a class="social-btn yt" href="https://youtube.com/@ZONZANSO" target="_blank" title="YouTube">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon fill="#0d5c2e" points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2024 <strong>ZONZAN SÔ</strong> — Le meilleur du lapin. Tous droits réservés.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="produit.js"></script>
 </body>
-
 </html>

@@ -1,74 +1,70 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZONZAN SÔ</title>
-    <link rel="stylesheet" href="promo.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZONZAN SÔ — Promotions</title>
+  <link rel="stylesheet" href="promo.css">
 </head>
 <body>
-    <header>
-        <img src="logo.jpeg" alt=""  width="50px">
-        <nav>
-            <a href="index.html">Acceuil</a>
-            <a href="suivi.html">Suivi</a>
-            <a href="produit.html">Produit</a>
-            <a href="formation.html">formation</a>
-        </nav>
-    </header>
-    <main>
-        <div class="modal-overlay" id="loginModal">
+
+  <div class="nav-overlay" id="navOverlay"></div>
+
+  <header>
+    <img src="logo.jpeg" alt="ZONZAN SÔ" width="46px">
+    <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav id="mainNav">
+      <a href="index.html">Accueil</a>
+      <a href="suivi.html">Suivi</a>
+      <a href="produit.html">Produit</a>
+      <a href="formation.html">Formation</a>
+    </nav>
+  </header>
+
+  <!-- ══ HERO ══ -->
+  <section class="promo-hero">
+    <div class="hero-label">🔥 Offres spéciales</div>
+    <h1>Nos Promotions</h1>
+    <p>Des réductions et offres limitées sur nos formations et produits. Profitez-en avant qu'elles expirent !</p>
+    <!-- bouton gear discret — invisible pour les visiteurs, affiché par JS si admin -->
+    <button class="gear-btn" id="gearBtn" onclick="askLogin()" title="Espace Admin" style="display:none">⚙</button>
+  </section>
+
+  <!-- ══ MODAL LOGIN ══ -->
+  <div class="modal-overlay" id="loginModal">
     <div class="login-box">
+      <button class="login-close" onclick="closeLogin()">✕</button>
       <span class="lock">🔐</span>
-      <h2>Accès Administrateur</h2>
+      <h2>Accès Admin</h2>
       <p>Entrez le mot de passe pour gérer les promotions</p>
-      <input type="password" id="pwdInput" placeholder="Mot de passe" onkeydown="if(event.key==='Enter')checkLogin()"/>
+      <input type="password" id="pwdInput" placeholder="Mot de passe"
+             onkeydown="if(event.key==='Enter')checkLogin()"/>
       <button class="btn-login" onclick="checkLogin()">Se connecter</button>
       <div class="login-error" id="loginError">❌ Mot de passe incorrect</div>
-      <br/>
-      <button class="btn-cancel-login" onclick="closeLogin()">Annuler</button>
     </div>
   </div>
 
-  
-  <div class="admin-toggle">
-    <button class="btn-logout" id="btnLogout" onclick="logout()">🚪 Déconnexion</button>
-    <button class="btn-admin" id="btnAdmin" onclick="askLogin()">⚙️ Espace Admin</button>
-  </div>
-
- 
+  <!-- ══ ADMIN PANEL ══ -->
   <div class="admin-panel" id="adminPanel">
     <div class="admin-header">
-      <h3>🛠 Panneau d'administration</h3>
-      <span>Ajoutez et gérez vos promotions</span>
+      <div>
+        <h3>🛠 Panneau Admin</h3>
+        <span>Gérez vos promotions</span>
+      </div>
+      <button class="btn-logout" onclick="logout()">🚪 Déconnexion</button>
     </div>
 
     <div class="admin-form">
       <div class="aform-title">➕ Nouvelle Promotion</div>
-
-      <!-- Ligne 1 : titre + badge -->
       <div class="admin-row">
-        <div class="af">
-          <label>Titre de la promo *</label>
-          <input type="text" id="aTitle" placeholder="Ex : Rentrée scolaire"/>
-        </div>
-        <div class="af">
-          <label>Badge / Étiquette</label>
-          <input type="text" id="aBadge" placeholder="Ex : -30% · Offre limitée"/>
-        </div>
+        <div class="af"><label>Titre *</label><input type="text" id="aTitle" placeholder="Ex : Rentrée scolaire"/></div>
+        <div class="af"><label>Badge / Étiquette</label><input type="text" id="aBadge" placeholder="Ex : -30% · Offre limitée"/></div>
       </div>
-
-      <!-- Ligne 2 : prix -->
       <div class="admin-row3">
-        <div class="af">
-          <label>Prix normal (FCFA)</label>
-          <input type="number" id="aOldPrice" placeholder="50000"/>
-        </div>
-        <div class="af">
-          <label>Prix promo (FCFA)</label>
-          <input type="number" id="aNewPrice" placeholder="35000"/>
-        </div>
+        <div class="af"><label>Prix normal (FCFA)</label><input type="number" id="aOldPrice" placeholder="50000"/></div>
+        <div class="af"><label>Prix promo (FCFA)</label><input type="number" id="aNewPrice" placeholder="35000"/></div>
         <div class="af">
           <label>Type de formation</label>
           <select id="aFormationType">
@@ -80,169 +76,88 @@
           </select>
         </div>
       </div>
-
-      <!-- Ligne 3 : dates -->
       <div class="admin-row">
-        <div class="af">
-          <label>Date de début</label>
-          <input type="date" id="aStart"/>
-        </div>
-        <div class="af">
-          <label>Date de fin</label>
-          <input type="date" id="aEnd"/>
-        </div>
+        <div class="af"><label>Date de début</label><input type="date" id="aStart"/></div>
+        <div class="af"><label>Date de fin</label><input type="date" id="aEnd"/></div>
       </div>
-
-      <!-- Description -->
       <div class="af" style="margin-bottom:14px">
         <label>Description</label>
         <textarea id="aDesc" rows="2" placeholder="Décrivez brièvement la promotion…"></textarea>
       </div>
-
       <div class="form-divider"></div>
-
-      <!-- Image produit -->
-      <div class="aform-title">🖼 Image du produit / formation</div>
+      <div class="aform-title">🖼 Image</div>
       <div class="img-drop" id="imgDrop">
         <input type="file" id="aImage" accept="image/*" onchange="previewImg(this)"/>
         <div class="id-icon">📷</div>
-        <p><strong>Cliquez pour ajouter</strong> une image du produit</p>
-        <p>JPG, PNG, WEBP recommandé</p>
+        <p><strong>Cliquez</strong> pour ajouter une image</p>
+        <p>JPG · PNG · WEBP</p>
         <img class="img-preview" id="imgPreview" src="" alt="Aperçu"/>
       </div>
-
-      <button class="btn-add" onclick="addPromo()" style="margin-top:18px">
-        ✅ Publier la Promotion
-      </button>
+      <button class="btn-add" onclick="addPromo()">✅ Publier la Promotion</button>
     </div>
 
-    <!-- List of promos in admin -->
     <div class="admin-list">
       <div class="admin-list-hd">Promotions enregistrées</div>
       <div id="adminList"><div class="admin-empty">Aucune promotion pour le moment.</div></div>
     </div>
   </div>
 
-  <!-- ===== SECTION PROMO (PUBLIC) ===== -->
+  <!-- ══ SECTION PUBLIQUE ══ -->
   <section class="promo-section">
-    <div class="section-label">
-      <div class="tag">🔥 Promo</div>
-      <h2 style="color: white;">Nos Promotions</h2>
-    </div>
-
     <div class="promo-empty" id="emptyState">
       <div class="e-icon">🏷️</div>
       <h3>Aucune promo en ce moment</h3>
       <p>Revenez bientôt ! Nos promotions apparaîtront ici dès qu'elles seront disponibles.</p>
     </div>
-
     <div class="promo-grid" id="promoGrid"></div>
   </section>
 
-
-    </main><br></br>
-
-
-
-    <!--le footer-->
-     <footer> 
-      <div class="footer-texture"></div>
-  <div class="footer-inner">
-
-    
-    <div class="footer-brand">
-      <div class="brand-name">
-        ZONZAN SÔ
-        <span>Depuis 2017</span>
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-texture"></div>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="brand-name">ZONZAN SÔ<span>Depuis 2017</span></div>
+        <p class="slogan-text">« Le meilleur du lapin »</p>
+        <div class="slogan-badge">🐇 Élevage · Qualité · Excellence</div>
       </div>
-      <p class="slogan-text">« Le meilleur du lapin »</p>
-      <div class="slogan-badge">🐇 Élevage · Qualité · Excellence</div>
-    </div>
-
-   
-    <div class="footer-main">
-
-      <!-- Contacts -->
-      <div class="f-col">
-        <div class="col-title">📞 Contacts</div>
-        <div class="contact-list">
-          <a class="contact-item" href="tel:+22669613683">
-            <div class="ci-icon">📱</div>+223 69 61 36 83
-          </a>
-          <a class="contact-item" href="tel:+22607000000">
-            <div class="ci-icon">☎️</div>+22 90 00 18 18
-          </a>
-          <a class="contact-item" href="mailto:contact@zonzanso.com">
-            <div class="ci-icon">✉️</div>contact@zonzanso.com
-          </a>
-          <a class="contact-item" href="https://wa.me/22669613683" target="_blank">
-            <div class="ci-icon">💬</div>WhatsApp : 69 61 36 83
-          </a>
+      <div class="footer-main">
+        <div class="f-col">
+          <div class="col-title">📞 Contacts</div>
+          <div class="contact-list">
+            <a class="contact-item" href="tel:+22669613683"><div class="ci-icon">📱</div>+223 69 61 36 83</a>
+            <a class="contact-item" href="tel:+22690001818"><div class="ci-icon">☎️</div>+223 90 00 18 18</a>
+            <a class="contact-item" href="mailto:contact@zonzanso.com"><div class="ci-icon">✉️</div>contact@zonzanso.com</a>
+            <a class="contact-item" href="https://wa.me/22669613683" target="_blank"><div class="ci-icon">💬</div>WhatsApp</a>
+          </div>
+        </div>
+        <div class="v-div"></div>
+        <div class="f-col">
+          <div class="col-title">📍 Adresse</div>
+          <div class="addr-list">
+            <div class="addr-item"><span class="ai-icon">🏢</span>Sabalibougou, Bamako, Mali</div>
+            <div class="addr-item"><span class="ai-icon">🌍</span>Bamako, Mali</div>
+            <a class="map-btn" href="https://maps.google.com" target="_blank">🗺 Voir sur la carte</a>
+          </div>
+        </div>
+        <div class="v-div"></div>
+        <div class="f-col">
+          <div class="col-title">🌐 Réseaux sociaux</div>
+          <div class="social-list">
+            <a class="social-btn fb" href="https://facebook.com/ZONZANSO" target="_blank" title="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+            <a class="social-btn ig" href="https://instagram.com/ZONZANSO" target="_blank" title="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a class="social-btn wa" href="https://wa.me/22669613683" target="_blank" title="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg></a>
+            <a class="social-btn tt" href="https://tiktok.com/@ZONZANSO" target="_blank" title="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.45a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.34 6.34 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z"/></svg></a>
+            <a class="social-btn yt" href="https://youtube.com/@ZONZANSO" target="_blank" title="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon fill="#0d5c2e" points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg></a>
+          </div>
         </div>
       </div>
-
-      <div class="v-div"></div>
-
-      <!-- Adresse -->
-      <div class="f-col">
-        <div class="col-title">📍 Adresse</div>
-        <div class="addr-list">
-          <div class="addr-item">
-            <span class="ai-icon">🏢</span>
-           sabalibougou, bamako, Mali
-          </div>
-          <div class="addr-item">
-            <span class="ai-icon">🌍</span>
-            Bamako, Mali
-          </div>
-          <div class="addr-item">
-            <span class="ai-icon"></span>
-            
-          </div>
-          <a class="map-btn" href="https://maps.google.com" target="_blank">
-            🗺 Voir sur la carte
-          </a>
-        </div>
+      <div class="footer-bottom">
+        <p>© 2024 <strong>ZONZAN SÔ</strong> — Le meilleur du lapin. Tous droits réservés.</p>
       </div>
-
-      <div class="v-div"></div>
-
-      <!-- Réseaux sociaux -->
-      <div class="f-col">
-        <div class="col-title">🌐 Réseaux sociaux</div>
-        <div class="social-list">
-          <a class="social-btn fb" href="https://facebook.com/ZONZANSO" target="_blank">
-            <span class="sico"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></span>
-            Facebook
-          </a>
-          <a class="social-btn ig" href="https://instagram.com/ZONZANSO" target="_blank">
-            <span class="sico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></span>
-            Instagram
-          </a>
-          <a class="social-btn wa" href="https://wa.me/22369613683" target="_blank">
-            <span class="sico"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg></span>
-            WhatsApp
-          </a>
-          <a class="social-btn tt" href="https://tiktok.com/@ZONZANSO" target="_blank">
-            <span class="sico"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.45a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.34 6.34 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z"/></svg></span>
-            TikTok
-          </a>
-          <a class="social-btn yt" href="https://youtube.com/@ZONZANSO" target="_blank">
-            <span class="sico"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon fill="#0d5c2e" points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg></span>
-            YouTube
-          </a>
-        </div>
-      </div>
-
     </div>
+  </footer>
 
-    <!-- Bottom -->
-    <div class="footer-bottom">
-      <p>© 2024 <strong>ZONZAN SO</strong> — Le meilleur du lapin. Tous droits réservés.</p>
-    </div>
-
-  </div>
-</footer>
-    <script src="promo.js"></script>
+  <script src="promo.js"></script>
 </body>
 </html>

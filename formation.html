@@ -1,325 +1,325 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZONZAN SÔ</title>
-    <link rel="stylesheet" href="formation.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZONZAN SÔ — Formations</title>
+  <link rel="stylesheet" href="formation.css">
 </head>
 <body>
-    <header>
-        <img src="logo.jpeg" alt=""  width="50px">
-        <nav style="word-spacing: 50px;">
-            <a href="index.html">Acceuil</a>
-            <a href="suivi.html">Suivi</a>
-            <a href="produit.html">Produit</a>
-            <a href="promo.html">Promo</a>
-        </nav>
 
-    </header>
+  <div class="nav-overlay" id="navOverlay"></div>
 
+  <header>
+    <img src="logo.jpeg" alt="ZONZAN SÔ" width="46px">
+    <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav id="mainNav">
+      <a href="index.html">Accueil</a>
+      <a href="suivi.html">Suivi</a>
+      <a href="produit.html">Produit</a>
+      <a href="promo.html">Promo</a>
+    </nav>
+  </header>
 
+  <!-- ══ HERO ══ -->
+  <section class="formation-hero">
+    <div class="hero-label">🎓 Zonzan Sô</div>
+    <h1>Nos Formations</h1>
+    <p>Apprenez la cuniculture avec des experts. Deux formules adaptées à votre rythme de vie.</p>
+    <div class="hero-prices">
+      <div class="hp-item"><span class="hp-type">👤 Individuel</span><span class="hp-price">50 000 FCFA</span></div>
+      <div class="hp-div"></div>
+      <div class="hp-item"><span class="hp-type">🏫 Présentiel</span><span class="hp-price">25 000 FCFA</span></div>
+      <div class="hp-div"></div>
+      <div class="hp-item"><span class="hp-type">💻 En ligne</span><span class="hp-price">25 000 FCFA</span></div>
+    </div>
+    <!-- CTA principal — bien visible dans le hero -->
+    <button class="hero-cta" onclick="openChoice()">
+      <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/>
+      </svg>
+      S'inscrire à une Formation
+    </button>
+  </section>
 
+  <!-- ══ CARDS FORMATION ══ -->
+  <section class="formations-section">
 
-    <main>
-      <div class="page-title">
-  <b>À Propos de la Formation</b>
-  <div class="underline"></div>
-</div>
+    <!-- PRÉSENTIEL -->
+    <div class="formation-card">
 
-<!-- BOUTON INSCRIPTION -->
-<div class="btn-wrap">
-  <button class="btn-main" onclick="openChoice()">
-    <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-      <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/>
-    </svg>
-    <span>S'inscrire à une Formation</span>
-  </button>
-</div>
-
-<!-- ══ FORMATIONS ══ -->
-<div class="formations">
-
-  <!-- Présentiel -->
-  <div class="formation-card">
-    <div class="card-slider" data-slider="0">
-      <div class="slides">
-        <div class="slide"><img src="formation2.jpeg" alt="Formation présentiel 1"></div>
-        <div class="slide"><img src="" alt="Formation présentiel 2"></div>
-
+      <div class="card-slider" data-slider="0">
+        <div class="slides">
+          <div class="slide"><img src="formation2.jpeg" alt="Formation présentiel"></div>
+          <div class="slide"><img src="suivi-m-1.jpeg"  alt="Formation terrain"></div>
+          <div class="slide"><img src="suivi-m-2.jpeg"  alt="Formation pratique"></div>
+        </div>
+        <button class="slider-arrow left">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+        </button>
+        <button class="slider-arrow right">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+        </button>
+        <div class="slider-footer">
+          <span class="slide-tag">🏫 Sur site</span>
+          <div class="dots"></div>
+          <span class="slide-counter"><span class="cur">1</span> / <span class="tot">3</span></span>
+        </div>
       </div>
-      <div class="arrows-bar">
-        <button class="arr prev">&#8249;</button>
-        <div class="dots"></div>
-        <button class="arr next">&#8250;</button>
+
+      <div class="card-body">
+        <div class="card-head">
+          <div>
+            <h2 class="card-title">Formation en Présentiel</h2>
+            <span class="card-sub">Expérience pratique sur le terrain</span>
+          </div>
+          <div class="price-badge">25 000 FCFA</div>
+        </div>
+
+        <p class="card-desc">
+          Nos formations en présentiel offrent une expérience <strong>pratique et interactive</strong>.
+          Les participants sont directement sur le terrain pour comprendre les techniques d'élevage,
+          les méthodes de traitement et les bonnes pratiques à adopter avec un accompagnement direct.
+        </p>
+
+        <div class="info-grid">
+          <div class="info-item"><span class="info-ico">📍</span><div><strong>Lieu</strong><span>Bamako — sur site</span></div></div>
+          <div class="info-item"><span class="info-ico">👥</span><div><strong>Format</strong><span>Groupe ou individuel</span></div></div>
+          <div class="info-item"><span class="info-ico">🛠</span><div><strong>Pratique</strong><span>Terrain & manipulation</span></div></div>
+          <div class="info-item"><span class="info-ico">💬</span><div><strong>Questions</strong><span>En temps réel</span></div></div>
+        </div>
+
+        <div class="avantages">
+          <div class="av-title">Ce que vous apprenez</div>
+          <div class="av-list">
+            <div class="av-item"><span>✓</span>Techniques d'élevage cunicole</div>
+            <div class="av-item"><span>✓</span>Soins, alimentation et traitement</div>
+            <div class="av-item"><span>✓</span>Gestion d'un élevage rentable</div>
+            <div class="av-item"><span>✓</span>Sélection des bonnes souches</div>
+          </div>
+        </div>
+
+        <button class="card-cta" onclick="openForm('presentiel')">
+          S'inscrire — Présentiel
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </button>
       </div>
     </div>
-    <div class="card-content">
-      <span class="card-badge">🏫 Sur site</span>
-      <h2 class="card-title">La Formation en Présentiel</h2>
-      <div class="card-price">💰 25 000 FCFA</div>
-      <p class="card-desc">
-        Nos formations en présentiel offrent une expérience pratique et interactive.
-        Les participants sont directement sur le terrain pour mieux comprendre les
-        techniques d'élevage, les méthodes de traitement et les bonnes pratiques à adopter.
-        Grâce à un accompagnement direct, vous pouvez poser vos questions et pratiquer immédiatement.
-      </p>
+
+    <!-- EN LIGNE -->
+    <div class="formation-card reverse">
+
+      <div class="card-slider" data-slider="1">
+        <div class="slides">
+          <div class="slide"><img src="formation3.jpeg" alt="Formation en ligne"></div>
+          <div class="slide"><img src="formation4.jpeg" alt="Formation à distance"></div>
+          <div class="slide"><img src="suivi-m-3.jpeg"  alt="Formation vidéo"></div>
+        </div>
+        <button class="slider-arrow left">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+        </button>
+        <button class="slider-arrow right">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+        </button>
+        <div class="slider-footer">
+          <span class="slide-tag">💻 À distance</span>
+          <div class="dots"></div>
+          <span class="slide-counter"><span class="cur">1</span> / <span class="tot">3</span></span>
+        </div>
+      </div>
+
+      <div class="card-body">
+        <div class="card-head">
+          <div>
+            <h2 class="card-title">Formation en Ligne</h2>
+            <span class="card-sub">Flexible, depuis chez vous</span>
+          </div>
+          <div class="price-badge">25 000 FCFA</div>
+        </div>
+
+        <p class="card-desc">
+          Apprenez facilement <strong>depuis chez vous</strong>, à votre rythme et selon votre disponibilité.
+          Accompagnement complet avec explications détaillées, conseils pratiques et suivi adapté à votre niveau.
+        </p>
+
+        <div class="info-grid">
+          <div class="info-item"><span class="info-ico">🌍</span><div><strong>Lieu</strong><span>Partout dans le monde</span></div></div>
+          <div class="info-item"><span class="info-ico">🕐</span><div><strong>Horaire</strong><span>Selon disponibilité</span></div></div>
+          <div class="info-item"><span class="info-ico">📱</span><div><strong>Support</strong><span>WhatsApp, vidéo</span></div></div>
+          <div class="info-item"><span class="info-ico">🔄</span><div><strong>Suivi</strong><span>Continu et adapté</span></div></div>
+        </div>
+
+        <div class="avantages">
+          <div class="av-title">Ce que vous apprenez</div>
+          <div class="av-list">
+            <div class="av-item"><span>✓</span>Cours détaillés envoyés par WhatsApp</div>
+            <div class="av-item"><span>✓</span>Vidéos explicatives et fiches pratiques</div>
+            <div class="av-item"><span>✓</span>Suivi personnalisé avec votre formateur</div>
+            <div class="av-item"><span>✓</span>Accessible sans se déplacer</div>
+          </div>
+        </div>
+
+        <button class="card-cta" onclick="openForm('enligne')">
+          S'inscrire — En ligne
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </button>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- CTA mobile fixe -->
+  <div class="mobile-cta">
+    <button onclick="openChoice()">
+      <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
+      S'inscrire à une Formation
+    </button>
+  </div>
+
+  <!-- ══ CHOICE MODAL ══ -->
+  <div class="overlay" id="choiceOverlay">
+    <div class="choice-card">
+      <button class="choice-close" onclick="closeChoice()">✕</button>
+      <span class="choice-icon">🎓</span>
+      <h2>Type de Formation</h2>
+      <p>Sélectionnez le mode qui vous convient</p>
+      <div class="choice-list">
+        <button class="type-btn" onclick="openForm('individuel')">
+          <div class="t-icon">👤</div>
+          <div class="t-info"><strong>Individuel</strong><em>Formation personnalisée 1 à 1</em></div>
+          <span class="t-price">50 000 FCFA</span>
+        </button>
+        <button class="type-btn" onclick="openForm('presentiel')">
+          <div class="t-icon">🏫</div>
+          <div class="t-info"><strong>En Présentiel</strong><em>Formation en salle / sur terrain</em></div>
+          <span class="t-price">25 000 FCFA</span>
+        </button>
+        <button class="type-btn" onclick="openForm('enligne')">
+          <div class="t-icon">💻</div>
+          <div class="t-info"><strong>En Ligne</strong><em>Formation à distance, flexible</em></div>
+          <span class="t-price">25 000 FCFA</span>
+        </button>
+      </div>
     </div>
   </div>
 
-  <!-- En ligne -->
-  <div class="formation-card reverse">
-    <div class="card-slider" data-slider="1">
-      <div class="slides">
-        <div class="slide"><img src="formation3.jpeg" alt="Formation en ligne 1"></div>
-        <div class="slide"><img src="formation4.jpeg" alt="Formation en ligne 2"></div>
-        <div class="slide"><img src="photo3.jpg" alt="Formation en ligne 3"></div>
-        <div class="slide"><img src="photo3.jpg" alt="Formation en ligne 3"></div>
+  <!-- ══ FORM SCREEN ══ -->
+  <div class="form-screen" id="formScreen">
+    <div class="form-wrap">
+      <div class="f-header">
+        <button class="back-btn" onclick="goBack()">
+          <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+          Retour
+        </button>
+        <div class="f-badge" id="fBadge">INDIVIDUEL</div>
+        <h2 id="fTitle">Inscription Individuelle</h2>
+        <div class="price-box">
+          <span class="p-emoji">💰</span>
+          <div>
+            <div class="p-val" id="fPrice">50 000 FCFA</div>
+            <div class="p-lbl">Frais d'inscription à régler</div>
+          </div>
+        </div>
       </div>
-      <div class="arrows-bar">
-        <button class="arr prev">&#8249;</button>
-        <div class="dots"></div>
-        <button class="arr next">&#8250;</button>
+
+      <div class="sub-section" id="subSection" style="display:none">
+        <h4>Choisir le mode de suivi</h4>
+        <div class="sub-btns">
+          <button class="sub-btn" id="subA" onclick="pickSub('presentiel')">🏫 Présentiel</button>
+          <button class="sub-btn" id="subB" onclick="pickSub('enligne')">💻 En ligne</button>
+        </div>
       </div>
-    </div>
-    <div class="card-content">
-      <span class="card-badge">💻 À distance</span>
-      <h2 class="card-title">La Formation en Ligne</h2>
-      <div class="card-price">💰 25 000 FCFA</div>
-      <p class="card-desc">
-        Apprenez facilement depuis chez vous, à votre rythme et selon votre disponibilité.
-        Vous bénéficierez d'un accompagnement complet avec des explications détaillées,
-        des conseils pratiques et un suivi adapté à votre niveau. Idéal pour se former
-        sans se déplacer tout en gardant un contact permanent avec nos formateurs.
-      </p>
+
+      <div class="f-body">
+        <div class="row2">
+          <div class="fg"><label>Nom</label><input type="text" id="fNom" placeholder="Votre nom"></div>
+          <div class="fg"><label>Prénom</label><input type="text" id="fPrenom" placeholder="Votre prénom"></div>
+        </div>
+        <div class="row2">
+          <div class="fg"><label>Numéro 1</label><input type="tel" id="fTel1" placeholder="Ex : 69 12 34 56"></div>
+          <div class="fg"><label>Numéro 2</label><input type="tel" id="fTel2" placeholder="Optionnel"></div>
+        </div>
+        <div class="fg"><label>Quartier</label><input type="text" id="fQuartier" placeholder="Votre quartier de résidence"></div>
+        <div class="fg">
+          <label>Pièce d'identité</label>
+          <div class="file-drop">
+            <input type="file" id="fPiece" accept="image/*,.pdf" onchange="showFile(this)">
+            <div class="fd-icon">📎</div>
+            <p><strong>Cliquez ici</strong> pour joindre votre pièce</p>
+            <p>CNI · Passeport · Tout document officiel</p>
+            <div class="file-picked" id="pickedName"></div>
+          </div>
+        </div>
+        <div class="divider"></div>
+        <div class="fg">
+          <label>Mode de Paiement</label>
+          <div class="pay-grid">
+            <label class="pay-card"><input type="radio" name="pay" value="Orange Money"><span class="pico">🟠</span><span class="pname">Orange Money</span></label>
+            <label class="pay-card"><input type="radio" name="pay" value="Wave"><span class="pico">🌊</span><span class="pname">Wave</span></label>
+            <label class="pay-card"><input type="radio" name="pay" value="Moov Money"><span class="pico">🔵</span><span class="pname">Moov Money</span></label>
+            <label class="pay-card"><input type="radio" name="pay" value="Bancaire"><span class="pico">🏦</span><span class="pname">Bancaire</span></label>
+          </div>
+        </div>
+      </div>
+
+      <div class="f-footer">
+        <button class="btn-send" onclick="envoyerWA()">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/></svg>
+          Envoyer sur WhatsApp
+        </button>
+        <p class="note">📌 Vérifiez vos informations avant d'envoyer.</p>
+      </div>
     </div>
   </div>
 
-</div>
-
-<!-- ══ CHOICE MODAL ══ -->
-<div class="overlay" id="choiceOverlay" onclick="bgClose(event,'choiceOverlay')">
-  <div class="choice-card">
-    <span class="card-icon">🎓</span>
-    <h2>Type de Formation</h2>
-    <p>Sélectionnez le mode d'apprentissage qui vous convient</p>
-    <div class="choice-list">
-      <button class="type-btn" onclick="openForm('individuel')">
-        <div class="t-icon">👤</div>
-        <div class="t-info">
-          <strong>Individuel</strong>
-          <em>Formation personnalisée 1 à 1</em>
-        </div>
-        <span class="t-price">50 000 FCFA</span>
-      </button>
-      <button class="type-btn" onclick="openForm('presentiel')">
-        <div class="t-icon">🏫</div>
-        <div class="t-info">
-          <strong>En Présentiel</strong>
-          <em>Formation en salle de classe</em>
-        </div>
-        <span class="t-price">25 000 FCFA</span>
-      </button>
-      <button class="type-btn" onclick="openForm('enligne')">
-        <div class="t-icon">💻</div>
-        <div class="t-info">
-          <strong>En Ligne</strong>
-          <em>Formation à distance, flexible</em>
-        </div>
-        <span class="t-price">25 000 FCFA</span>
-      </button>
-    </div>
-  </div>
-</div>
-
-<!-- ══ FORM SCREEN ══ -->
-<div class="form-screen" id="formScreen">
-  <div class="form-wrap">
-    <div class="f-header">
-      <button class="back-btn" onclick="goBack()">
-        <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
-        </svg>
-        Retour
-      </button>
-      <div class="f-badge" id="fBadge">INDIVIDUEL</div>
-      <h2 id="fTitle">Inscription Individuelle</h2>
-      <div class="price-box">
-        <span class="p-emoji">💰</span>
-        <div>
-          <div class="p-val" id="fPrice">50 000 FCFA</div>
-          <div class="p-lbl">Frais d'inscription à régler</div>
-        </div>
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-texture"></div>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="brand-name">ZONZAN SÔ<span>Depuis 2017</span></div>
+        <p class="slogan-text">« Le meilleur du lapin »</p>
+        <div class="slogan-badge">🐇 Élevage · Qualité · Excellence</div>
       </div>
-    </div>
-
-    <div class="sub-section" id="subSection" style="display:none">
-      <h4>Choisir le mode de suivi</h4>
-      <div class="sub-btns">
-        <button class="sub-btn" id="subA" onclick="pickSub('presentiel')">🏫 Présentiel</button>
-        <button class="sub-btn" id="subB" onclick="pickSub('enligne')">💻 En ligne</button>
-      </div>
-    </div>
-
-    <div class="f-body">
-      <div class="row2">
-        <div class="fg"><label>Nom</label><input type="text" id="fNom" placeholder="Votre nom"></div>
-        <div class="fg"><label>Prénom</label><input type="text" id="fPrenom" placeholder="Votre prénom"></div>
-      </div>
-      <div class="row2">
-        <div class="fg"><label>Numéro 1</label><input type="tel" id="fTel1" placeholder="Ex : 07 12 34 56"></div>
-        <div class="fg"><label>Numéro 2</label><input type="tel" id="fTel2" placeholder="Ex : 05 98 76 54"></div>
-      </div>
-      <div class="fg"><label>Quartier</label><input type="text" id="fQuartier" placeholder="Votre quartier de résidence"></div>
-      <div class="fg">
-        <label>Pièce d'identité</label>
-        <div class="file-drop">
-          <input type="file" id="fPiece" accept="image/*,.pdf" onchange="showFile(this)">
-          <div class="fd-icon">📎</div>
-          <p><strong>Cliquez ici</strong> pour joindre votre pièce</p>
-          <p>CNI · Passeport · Tout document officiel</p>
-          <div class="file-picked" id="pickedName"></div>
-        </div>
-      </div>
-      <div class="divider"></div>
-      <div class="fg">
-        <label>Mode de Paiement</label>
-        <div class="pay-grid">
-          <div class="pay-card" onclick="pickPay(this,'Orange Money')">
-            <input type="radio" name="pay"><span class="pico">🟠</span><span class="pname">Orange Money</span><div class="pdot"></div>
+      <div class="footer-main">
+        <div class="f-col">
+          <div class="col-title">📞 Contacts</div>
+          <div class="contact-list">
+            <a class="contact-item" href="tel:+22669613683"><div class="ci-icon">📱</div>+223 69 61 36 83</a>
+            <a class="contact-item" href="tel:+22690001818"><div class="ci-icon">☎️</div>+223 90 00 18 18</a>
+            <a class="contact-item" href="mailto:contact@zonzanso.com"><div class="ci-icon">✉️</div>contact@zonzanso.com</a>
+            <a class="contact-item" href="https://wa.me/22669613683" target="_blank"><div class="ci-icon">💬</div>WhatsApp</a>
           </div>
-          <div class="pay-card" onclick="pickPay(this,'Wave')">
-            <input type="radio" name="pay"><span class="pico">🌊</span><span class="pname">Wave</span><div class="pdot"></div>
+        </div>
+        <div class="v-div"></div>
+        <div class="f-col">
+          <div class="col-title">📍 Adresse</div>
+          <div class="addr-list">
+            <div class="addr-item"><span class="ai-icon">🏢</span>Sabalibougou, Bamako, Mali</div>
+            <div class="addr-item"><span class="ai-icon">🌍</span>Bamako, Mali</div>
+            <a class="map-btn" href="https://maps.google.com" target="_blank">🗺 Voir sur la carte</a>
           </div>
-          <div class="pay-card" onclick="pickPay(this,'Moov Money')">
-            <input type="radio" name="pay"><span class="pico">🔵</span><span class="pname">Moov Money</span><div class="pdot"></div>
-          </div>
-          <div class="pay-card" onclick="pickPay(this,'Bancaire')">
-            <input type="radio" name="pay"><span class="pico">🏦</span><span class="pname">Bancaire</span><div class="pdot"></div>
+        </div>
+        <div class="v-div"></div>
+        <div class="f-col">
+          <div class="col-title">🌐 Réseaux sociaux</div>
+          <div class="social-list">
+            <a class="social-btn fb" href="https://facebook.com/ZONZANSO" target="_blank" title="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+            <a class="social-btn ig" href="https://instagram.com/ZONZANSO" target="_blank" title="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a class="social-btn wa" href="https://wa.me/22669613683" target="_blank" title="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg></a>
+            <a class="social-btn tt" href="https://tiktok.com/@ZONZANSO" target="_blank" title="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.45a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.34 6.34 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z"/></svg></a>
+            <a class="social-btn yt" href="https://youtube.com/@ZONZANSO" target="_blank" title="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon fill="#0d5c2e" points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg></a>
           </div>
         </div>
       </div>
-    </div>
-
-    <div class="f-footer">
-      <button class="btn-send" onclick="envoyerWA()">
-        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="white">
-          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/>
-        </svg>
-        Envoyer sur WhatsApp
-      </button>
-      <p class="note">📌 Vérifiez que les informations sont correctes avant d'envoyer.</p>
-    </div>
-  </div>
-</div>
-    </main><br></br>
-
-
-
-
-
-
-    <!--le footer-->
-     <footer>
-      <div class="footer-texture"></div>
-  <div class="footer-inner">
-
-    <!-- Slogan centré -->
-    <div class="footer-brand">
-      <div class="brand-name">
-        ZONZAN SÔ
-        <span>Depuis 2017</span>
+      <div class="footer-bottom">
+        <p>© 2024 <strong>ZONZAN SÔ</strong> — Le meilleur du lapin. Tous droits réservés.</p>
       </div>
-      <p class="slogan-text">« Le meilleur du lapin »</p>
-      <div class="slogan-badge">🐇 Élevage · Qualité · Excellence</div>
     </div>
+  </footer>
 
-    <!-- Ligne horizontale : Contact | Adresse | Réseaux -->
-    <div class="footer-main">
-
-      <!-- Contacts -->
-      <div class="f-col">
-        <div class="col-title">📞 Contacts</div>
-        <div class="contact-list">
-          <a class="contact-item" href="tel:+22669613683">
-            <div class="ci-icon">📱</div>+223 69 61 36 83
-          </a>
-          <a class="contact-item" href="tel:+22607000000">
-            <div class="ci-icon">☎️</div>+22 90 00 18 18
-          </a>
-          <a class="contact-item" href="mailto:contact@zonzanso.com">
-            <div class="ci-icon">✉️</div>contact@zonzanso.com
-          </a>
-          <a class="contact-item" href="https://wa.me/22669613683" target="_blank">
-            <div class="ci-icon">💬</div>WhatsApp : 69 61 36 83
-          </a>
-        </div>
-      </div>
-
-      <div class="v-div"></div>
-
-      <!-- Adresse -->
-      <div class="f-col">
-        <div class="col-title">📍 Adresse</div>
-        <div class="addr-list">
-          <div class="addr-item">
-            <span class="ai-icon">🏢</span>
-           sabalibougou, bamako, Mali
-          </div>
-          <div class="addr-item">
-            <span class="ai-icon">🌍</span>
-            Bamako, Mali
-          </div>
-          <div class="addr-item">
-            <span class="ai-icon"></span>
-            
-          </div>
-          <a class="map-btn" href="https://maps.google.com" target="_blank">
-            🗺 Voir sur la carte
-          </a>
-        </div>
-      </div>
-
-      <div class="v-div"></div>
-
-      <!-- Réseaux sociaux -->
-      <div class="f-col">
-        <div class="col-title">🌐 Réseaux sociaux</div>
-        <div class="social-list">
-          <a class="social-btn fb" href="https://facebook.com/ZONZANSO" target="_blank">
-            <span class="sico"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></span>
-            Facebook
-          </a>
-          <a class="social-btn ig" href="https://instagram.com/ZONZANSO" target="_blank">
-            <span class="sico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></span>
-            Instagram
-          </a>
-          <a class="social-btn wa" href="https://wa.me/22369613683" target="_blank">
-            <span class="sico"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg></span>
-            WhatsApp
-          </a>
-          <a class="social-btn tt" href="https://tiktok.com/@ZONZANSO" target="_blank">
-            <span class="sico"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.45a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.34 6.34 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z"/></svg></span>
-            TikTok
-          </a>
-          <a class="social-btn yt" href="https://youtube.com/@ZONZANSO" target="_blank">
-            <span class="sico"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon fill="#0d5c2e" points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg></span>
-            YouTube
-          </a>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- Bottom -->
-    <div class="footer-bottom">
-      <p>© 2024 <strong>ZONZAN SO</strong> — Le meilleur du lapin. Tous droits réservés.</p>
-    </div>
-
-  </div>
-     </footer>
-    <script src="formation.js"></script>
+  <script src="formation.js"></script>
 </body>
-
 </html>
