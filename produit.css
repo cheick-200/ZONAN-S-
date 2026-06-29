@@ -1,6 +1,4 @@
-/* ═══════════════════════════════
-   RESET & VARIABLES
-═══════════════════════════════ */
+
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
@@ -35,9 +33,10 @@ body {
 
 a { text-decoration: none; color: inherit; }
 
-/* ═══════════════════════════════
-   HEADER
-═══════════════════════════════ */
+
+
+
+
 header {
   display: flex;
   align-items: center;
@@ -677,7 +676,7 @@ nav a:hover {
   border-color: rgba(42,157,0,.4);
 }
 
-/* état sélectionné */
+
 .product.selected {
   border-color: var(--border-sel);
   background: var(--card-sel);
@@ -689,7 +688,7 @@ nav a:hover {
   to   { transform: scale(1); }
 }
 
-/* badge sélectionné */
+
 .product.selected::after {
   content: '✓ Ajouté';
   position: absolute;
@@ -950,9 +949,9 @@ nav a:hover {
   box-shadow: 0 6px 20px rgba(78,203,0,.22);
 }
 
-/* ═══════════════════════════════
-   MODAL PAIEMENT
-═══════════════════════════════ */
+
+
+
 .modal-overlay {
   display: none; 
   position: fixed; 
@@ -1262,17 +1261,21 @@ footer::before {
 
 @media (max-width: 900px) {
   .page {
-     grid-template-columns: 1fr; 
+     grid-template-columns: 1fr 200px; 
      padding: 20px 16px 40px; 
+     gap: 12px;
     }
   .product-grid { 
     padding-right: 0; 
-    grid-template-columns: repeat(auto-fill, minmax(155px,1fr));
-     gap: 14px; 
+    grid-template-columns: 1fr;
+     gap: 12px; 
     }
   .panier-sidebar { 
-    position: static; 
-    order: -1; 
+    position: sticky; 
+    order: 1; 
+    top: 64px;
+    max-height: calc(100vh - 80px);
+    overflow-y: auto;
   }
   .footer-main {
      flex-direction: column;
