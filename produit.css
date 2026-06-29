@@ -1261,7 +1261,7 @@ footer::before {
 
 @media (max-width: 900px) {
   .page {
-     grid-template-columns: 1fr 200px; 
+     grid-template-columns: 1fr 1fr; 
      padding: 20px 16px 40px; 
      gap: 12px;
     }
